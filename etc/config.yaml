@@ -122,7 +122,7 @@ training:
           your batchsize so that the model still fits in the GPU.
 
   epochs:
-    value: 15
+    value: 30
     type: "int"
     range: [0, None]
     help: >
