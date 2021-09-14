@@ -122,7 +122,7 @@ training:
           your batchsize so that the model still fits in the GPU.
 
   epochs:
-    value: 30
+    value: 100
     type: "int"
     range: [0, None]
     help: >
@@ -213,10 +213,10 @@ monitor:
 #  Options about your dataset image augmentation
 #####################################################
 
-augmentation:
+augmentation: 
 
   train_mode:
-    value:
+    value: 
       h_flip: 0.5
       v_flip: 0.5
       rot: 0.7
