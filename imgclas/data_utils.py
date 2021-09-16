@@ -443,7 +443,7 @@ class data_sequence(Sequence):
             np.random.shuffle(self.indexes)
 
 
-def standard_tencrop_batch(im, crop_prop=0.9):
+def standard_tencrop_batch(im, crop_prop=0.95):
     """
     Returns an ordered ten crop batch of images from an original image (corners, center + mirrors).
 
