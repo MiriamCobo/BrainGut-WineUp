@@ -38,7 +38,7 @@ general:
 model:
 
   modelname:
-      value: "Xception"
+      value: "ResNet50"
       type: "str"
       choices: ["DenseNet121", "DenseNet169", "DenseNet201", "InceptionResNetV2", "InceptionV3", "MobileNet",
                "NASNetMobile", "Xception", "ResNet50", "VGG16", "VGG19"]
@@ -75,7 +75,7 @@ model:
 
 dataset:
   mean_RGB:
-    value:
+    value: [102.05376440861035, 102.37314566103207, 102.05975772076037]
     type: "list"
     help: >
           Mean RGB value of the image dataset. If not provided it will be automatically computed before the training
@@ -84,7 +84,7 @@ dataset:
           Example: [122.4, 142.6, 113.8]
 
   std_RGB:
-    value:
+    value: [33.834656270683304, 33.69815365913919, 33.83015504908426]
     type: "list"
     help: >
           Standard deviation of the RGB value of the image dataset. It is actually not needed for training.
@@ -114,15 +114,15 @@ training:
           Initial learning rate.
 
   batch_size:
-    value: 16
+    value: 1
     type: "int"
     range: [1, 64]
     help: >
           Batchsize to use during training. If your model has a large number of classes (>1000) you might need to decrease
-          your batchsize so that the model still fits in the GPU.
+          your batchsize so that the model still fits in the GPU. (It was set by Ignacio to 16)
 
   epochs:
-    value: 100
+    value: 200
     type: "int"
     range: [0, None]
     help: >
