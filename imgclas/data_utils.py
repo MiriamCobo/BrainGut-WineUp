@@ -505,7 +505,7 @@ class k_crop_data_sequence(Sequence):
     Each batch delivered is composed by multiple crops (default=10) of the same image.
     """
 
-    def __init__(self, inputs, mean_RGB, std_RGB, preprocess_mode, aug_params, crop_number=10, crop_mode='random',
+    def __init__(self, inputs, mean_RGB, std_RGB, preprocess_mode, aug_params, crop_number=30, crop_mode='random',
                  filemode='local', im_size=224):
         """
         Parameters are the same as in the data_generator function except for:
