@@ -48,11 +48,12 @@ model:
             "NASNetLarge" has been disabled as a choice as it gave compilation errors.
 
   image_size:
-    value: 224
+    value: 528
     type: "int"
     range: [32, 1000]
     help: >
-          Image size to feed the model. If not provided, we will use the default image size of each model.
+          Image size to feed the model. If not provided, we will use the default image size of each model. (It was set by Igancio
+          to 224)
 
   num_classes:
     value:
@@ -75,7 +76,7 @@ model:
 
 dataset:
   mean_RGB:
-    value: [102.05376440861035, 102.37314566103207, 102.05975772076037]
+    value: [145.7009020327461, 145.57541800835594, 143.40409009710942]
     type: "list"
     help: >
           Mean RGB value of the image dataset. If not provided it will be automatically computed before the training
@@ -83,8 +84,8 @@ dataset:
           different training configurations with the same dataset.
           Example: [122.4, 142.6, 113.8]
 
-  std_RGB:
-    value: [33.834656270683304, 33.69815365913919, 33.83015504908426]
+  std_RGB: 
+    value: [37.09825214810984, 38.16266727994038, 37.706027031863435]
     type: "list"
     help: >
           Standard deviation of the RGB value of the image dataset. It is actually not needed for training.
@@ -114,7 +115,7 @@ training:
           Initial learning rate.
 
   batch_size:
-    value: 2
+    value: 16
     type: "int"
     range: [1, 64]
     help: >
@@ -122,7 +123,7 @@ training:
           your batchsize so that the model still fits in the GPU. (It was set by Ignacio to 16)
 
   epochs:
-    value: 150
+    value: 100
     type: "int"
     range: [0, None]
     help: >
@@ -219,15 +220,15 @@ augmentation:
     value: 
       h_flip: 0.5
       v_flip: 0.5
-      rot: 0.7
+      rot: 0.5
       rot_lim: 90
       stretch: 0.0
       crop: 1.
-      zoom: 0.1
-      blur: 0.3
-      pixel_noise: 0.3
+      zoom: 0.0
+      blur: 0.2
+      pixel_noise: 0.1
       pixel_sat: 0.3
-      cutout: 0.5
+      cutout: 0.0
     help: >
           Augmentation parameters to use during the training phase. The meaning of the parameters is the following:
             - h_flip ([0,1] float): probability of performing an horizontal left-right mirroring.
@@ -255,12 +256,12 @@ augmentation:
   val_mode:
     value:
       h_flip: 0.5
-      v_flip: 0.
+      v_flip: 0.5
       rot: 0.5
       rot_lim: 30
-      stretch: 0.
-      crop: 0.9
-      zoom: 0.1
+      stretch: 0.0
+      crop: 1.
+      zoom: 0.0
       blur: 0.1
       pixel_noise: 0.1
       pixel_sat: 0.1
