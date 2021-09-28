@@ -51,7 +51,7 @@ def load_data_splits(splits_dir, im_dir, split_name='train'):
 
     # Loading splits
     print("Loading {} data...".format(split_name))
-    split = np.genfromtxt(os.path.join(splits_dir, '{}.txt'.format(split_name)), dtype='str', delimiter=' ')
+    split = np.genfromtxt(os.path.join(splits_dir, '{}.txt'.format(split_name)), dtype='str', delimiter='*') # previously: delimiter=' '
     X = np.array([os.path.join(im_dir, i) for i in split[:, 0]])
 
     #TODO Check this part of the code
