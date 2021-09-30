@@ -554,52 +554,6 @@ class k_crop_data_sequence(Sequence):
 
         batch_X = preprocess_batch(batch=batch_X, mean_RGB=self.mean_RGB, std_RGB=self.std_RGB, mode=self.preprocess_mode)
         return batch_X
-    
-    
-class k_crop_data_sequence_lime(Sequence):
-    """
-    Data sequence generator for test time to feed to predict_generator.
-    Each batch delivered is composed by multiple crops (default=10) of the same image.
-    """
-
-    def __init__(self, inputs, mean_RGB, std_RGB, preprocess_mode, aug_params, crop_number=30, crop_mode='random',
-                 filemode='local', im_size=224):
-        """
-        Parameters are the same as in the data_generator function except for:
-
-        Parameters
-        ----------
-        crop_number : int
-            Number of crops of each image to take.
-        mode :str, {'random', 'standard'}
-            If 'random' data augmentation is performed randomly.
-            If 'standard' we take the standard 10 crops (corners +center + mirrors)
-        filemode : {'local','url'}
-            - 'local': filename is absolute path in local disk.
-            - 'url': filename is internet url.
-        """
-        self.inputs = inputs
-        self.mean_RGB = mean_RGB
-        self.std_RGB = std_RGB
-        self.preprocess_mode = preprocess_mode
-        self.aug_params = aug_params
-        self.crop_number = crop_number
-        self.crop_mode = crop_mode
-        self.filemode = filemode
-        self.im_size = im_size
-
-    def __len__(self):
-        return len(self.inputs)
-
-    def __getitem__(self, idx):
-        batch_X = []
-        im = load_image(self.inputs[idx], filemode=self.filemode)
-        im_aug = create_lime(im)
-        im_aug = resize_im(im_aug, height=self.im_size, width=self.im_size)
-        batch_X.append(im_aug)  # shape (N, 224, 224, 3)
-
-        batch_X = preprocess_batch(batch=batch_X, mean_RGB=self.mean_RGB, std_RGB=self.std_RGB, mode=self.preprocess_mode)
-        return batch_X
 
 
 def im_stats(filename):
