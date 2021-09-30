@@ -23,12 +23,15 @@ general:
           Base directory for data and models. All the data that will be read and written will be done within this
           directory.
           If path is relative it will be appended to the package path.
+          This was set by Ignacio to "."
 
   images_directory:
-    value: "data/images"
+    value: "/"
     type: "str"
     help: >
           Base directory for images. If the path is relative, it will be appended to the package path.
+          This was set by Ignacio to "data/images".
+          "/" is the root directory. For absolute path given in the images.
 
 
 #####################################################
@@ -76,7 +79,7 @@ model:
 
 dataset:
   mean_RGB:
-    value: [145.7009020327461, 145.57541800835594, 143.40409009710942]
+    value: [140.1378521380058, 141.19638818261592, 146.66716737445924]
     type: "list"
     help: >
           Mean RGB value of the image dataset. If not provided it will be automatically computed before the training
@@ -85,7 +88,7 @@ dataset:
           Example: [122.4, 142.6, 113.8]
 
   std_RGB: 
-    value: [37.09825214810984, 38.16266727994038, 37.706027031863435]
+    value: [37.428685821873636, 38.32576266194198, 38.824212063872004]
     type: "list"
     help: >
           Standard deviation of the RGB value of the image dataset. It is actually not needed for training.

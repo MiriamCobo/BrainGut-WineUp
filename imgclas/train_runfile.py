@@ -72,18 +72,18 @@ def train_fn(TIMESTAMP, CONF):
         CONF['training']['use_validation'] = False
 
     # Load the class names
-    class_names = load_class_names(splits_dir=paths.get_ts_splits_dir())
+    class_names = load_class_names(splits_dir=paths.get_ts_splits_dir()) ### for classification
 
     # Update the configuration
     CONF['model']['preprocess_mode'] = model_utils.model_modes[CONF['model']['modelname']]
     CONF['training']['batch_size'] = min(CONF['training']['batch_size'], len(X_train))
 
-    if CONF['model']['num_classes'] is None:
-        CONF['model']['num_classes'] = len(class_names)
+#     if CONF['model']['num_classes'] is None: ### for classification
+#         CONF['model']['num_classes'] = len(class_names) ### for classification
 
-    assert CONF['model']['num_classes'] >= np.amax(y_train), "Your train.txt file has more categories than those defined in classes.txt"
-    if CONF['training']['use_validation']:
-        assert CONF['model']['num_classes'] >= np.amax(y_val), "Your val.txt file has more categories than those defined in classes.txt"
+#     assert CONF['model']['num_classes'] >= np.amax(y_train), "Your train.txt file has more categories than those defined in classes.txt"
+#     if CONF['training']['use_validation']:
+#         assert CONF['model']['num_classes'] >= np.amax(y_val), "Your val.txt file has more categories than those defined in classes.txt" 
 
     # Compute the class weights
     if CONF['training']['use_class_weights']:
@@ -138,13 +138,20 @@ def train_fn(TIMESTAMP, CONF):
         for layer in base_model.layers:
             layer.trainable = False
 
+#     model.compile(optimizer=customAdam(lr=CONF['training']['initial_lr'],
+#                                        amsgrad=True,
+#                                        lr_mult=0.1,
+#                                        excluded_vars=top_vars
+#                                        ),
+#                   loss='categorical_crossentropy',
+#                   metrics=['accuracy']) ### for classification
     model.compile(optimizer=customAdam(lr=CONF['training']['initial_lr'],
                                        amsgrad=True,
                                        lr_mult=0.1,
                                        excluded_vars=top_vars
                                        ),
-                  loss='categorical_crossentropy',
-                  metrics=['accuracy'])
+                  loss='mean_squared_error',
+                  metrics=['mse']) ### for regression
 
     history = model.fit_generator(generator=train_gen,
                                   steps_per_epoch=train_steps,

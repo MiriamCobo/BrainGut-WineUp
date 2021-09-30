@@ -49,8 +49,9 @@ def create_model(CONF):
     # x = Flatten()(x) #might work better on large dataset than GlobalAveragePooling https://github.com/keras-team/keras/issues/8470
     x = Dense(1024,
               activation='relu')(x)
-    predictions = Dense(CONF['model']['num_classes'],
-                        activation='softmax')(x)
+#     predictions = Dense(CONF['model']['num_classes'],
+#                         activation='softmax')(x) ### esto es para un problema de clasificacion
+    predictions = Dense(1)(x) ### para un problema de regresion
 
     # Full model
     model = Model(inputs=base_model.input, outputs=predictions)
@@ -169,7 +170,8 @@ def save_default_imagenet_model():
     architecture = getattr(applications, CONF['model']['modelname'])
     img_width, img_height = CONF['model']['image_size'], CONF['model']['image_size']
     model = architecture(weights='imagenet', include_top=True, input_shape=(img_width, img_height, 3))
-    model.compile(optimizer='adam', loss='categorical_crossentropy', metrics=['accuracy'])
+#     model.compile(optimizer='adam', loss='categorical_crossentropy', metrics=['accuracy']) ### for clasification
+    model.compile(optimizer='adam', loss='mean_squared_error', metrics=['mse'])
 
     # Save everything
     utils.create_dir_tree()
