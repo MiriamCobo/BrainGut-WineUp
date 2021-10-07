@@ -14,7 +14,7 @@ import builtins
 import yaml
 
 homedir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-conf_path = os.path.join(homedir, 'etc', 'config.yaml')
+conf_path = os.path.join(homedir, 'etc', 'config-r.yaml')
 with open(conf_path, 'r') as f:
     CONF = yaml.safe_load(f)
 

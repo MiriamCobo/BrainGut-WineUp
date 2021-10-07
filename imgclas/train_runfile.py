@@ -85,12 +85,12 @@ def train_fn(TIMESTAMP, CONF):
 #     if CONF['training']['use_validation']:
 #         assert CONF['model']['num_classes'] >= np.amax(y_val), "Your val.txt file has more categories than those defined in classes.txt" 
 
-    # Compute the class weights
-    if CONF['training']['use_class_weights']:
-        class_weights = compute_classweights(y_train,
-                                             max_dim=CONF['model']['num_classes'])
-    else:
-        class_weights = None
+#     # Compute the class weights ###
+#     if CONF['training']['use_class_weights']:
+#         class_weights = compute_classweights(y_train,
+#                                              max_dim=CONF['model']['num_classes'])
+#     else:
+#         class_weights = None
 
     # Compute the mean and std RGB values
     if CONF['dataset']['mean_RGB'] is None:
@@ -99,7 +99,7 @@ def train_fn(TIMESTAMP, CONF):
     #Create data generator for train and val sets
     train_gen = data_sequence(X_train, y_train,
                               batch_size=CONF['training']['batch_size'],
-                              num_classes=CONF['model']['num_classes'],
+#                               num_classes=CONF['model']['num_classes'], ###
                               im_size=CONF['model']['image_size'],
                               mean_RGB=CONF['dataset']['mean_RGB'],
                               std_RGB=CONF['dataset']['std_RGB'],
@@ -110,7 +110,7 @@ def train_fn(TIMESTAMP, CONF):
     if CONF['training']['use_validation']:
         val_gen = data_sequence(X_val, y_val,
                                 batch_size=CONF['training']['batch_size'],
-                                num_classes=CONF['model']['num_classes'],
+#                                 num_classes=CONF['model']['num_classes'], ###
                                 im_size=CONF['model']['image_size'],
                                 mean_RGB=CONF['dataset']['mean_RGB'],
                                 std_RGB=CONF['dataset']['std_RGB'],
@@ -156,7 +156,7 @@ def train_fn(TIMESTAMP, CONF):
     history = model.fit_generator(generator=train_gen,
                                   steps_per_epoch=train_steps,
                                   epochs=CONF['training']['epochs'],
-                                  class_weight=class_weights,
+#                                   class_weight=class_weights, ###
                                   validation_data=val_gen,
                                   validation_steps=val_steps,
                                   callbacks=utils.get_callbacks(CONF),

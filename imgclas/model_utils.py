@@ -51,7 +51,7 @@ def create_model(CONF):
               activation='relu')(x)
 #     predictions = Dense(CONF['model']['num_classes'],
 #                         activation='softmax')(x) ### esto es para un problema de clasificacion
-    predictions = Dense(1)(x) ### para un problema de regresion
+    predictions = Dense(1, activation='linear')(x) ### para un problema de regresion
 
     # Full model
     model = Model(inputs=base_model.input, outputs=predictions)
@@ -149,9 +149,9 @@ def save_default_imagenet_model():
     CONF['model']['modelname'] = 'Xception'
     CONF['model']['image_size'] = 224
     CONF['model']['preprocess_mode'] = model_modes[CONF['model']['modelname']]
-    CONF['model']['num_classes'] = 1000
+#     CONF['model']['num_classes'] = 1000 ###
     CONF['dataset']['mean_RGB'] = [123.675, 116.28, 103.53]
-    CONF['dataset']['std_RGB'] = [58.395, 57.12, 57.375]
+    CONF['dataset']['sftd_RGB'] = [58.395, 57.12, 57.375]
 
     paths.timestamp = TIMESTAMP
     paths.CONF = CONF
