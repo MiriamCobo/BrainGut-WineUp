@@ -77,17 +77,18 @@ def mount_nextcloud(frompath, topath):
     return output, error
 
 
-def load_class_names(splits_dir):
-    """
-    Load list of class names
+###
+# def load_class_names(splits_dir):
+#     """
+#     Load list of class names
 
-    Returns
-    -------
-    Numpy array of shape (N) containing strs with class names
-    """
-    print("Loading class names...")
-    class_names = np.genfromtxt(os.path.join(splits_dir, 'classes.txt'), dtype='str', delimiter='/n')
-    return class_names
+#     Returns
+#     -------
+#     Numpy array of shape (N) containing strs with class names
+#     """
+#     print("Loading class names...")
+#     class_names = np.genfromtxt(os.path.join(splits_dir, 'classes.txt'), dtype='str', delimiter='/n')
+#     return class_names
 
 
 def load_class_info(splits_dir):

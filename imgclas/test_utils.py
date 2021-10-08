@@ -67,25 +67,25 @@ def predict(model, X, conf, crop_num=30, filemode='local', merge=False, use_mult
                            use_multiprocessing=use_multiprocessing)
 
     ### ?
-#     output = output.reshape(len(X), -1, output.shape[-1])  # reshape to (N, crop_number, num_classes)
+    output = output.reshape(len(X), -1)  # reshape to (N, crop_number, num_classes)
     output = np.mean(output, axis=1)  # take the mean across the crops
 
     if merge:
-        output = np.mean(output, axis=0)  # take the mean across the images
-        lab = np.argsort(output)[::-1]  # sort labels in descending prob ###?
+        output = np.mean(output, axis=0)  # take the mean across the images ###?
+        result = output  ### for regression
 #         lab = lab[:top_K]  # keep only top_K labels
 #         lab = np.expand_dims(lab, axis=0)  # add extra dimension to make to output have a shape (1, top_k)
-        prob = output[lab]
+#         prob = output[lab]
     else:
-        lab = np.argsort(output, axis=1)[:, ::-1]  # sort labels in descending prob
-        lab = lab[:, :top_K]  # keep only top_K labels
-        prob = output[np.repeat(np.arange(len(lab)), lab.shape[1]),
-                      lab.flatten()].reshape(lab.shape)  # retrieve corresponding probabilities
+        result = output  # sort labels in descending prob
+#         lab = lab[:, :top_K]  # keep only top_K labels
+#         prob = output[np.repeat(np.arange(len(lab)), lab.shape[1]),
+#                       lab.flatten()].reshape(lab.shape)  # retrieve corresponding probabilities
 
-    return lab, prob
+    return result
 
 
-def topK_accuracy(true_lab, pred_lab, K=1):
+def topK_accuracy(true_lab, pred_lab, K=1): ### revisar
     """
     Compute the top_K accuracy
 

@@ -72,7 +72,7 @@ model:
 
 dataset:
   mean_RGB:
-    value: [140.1378521380058, 141.19638818261592, 146.66716737445924]
+    value: [140.74365519517684, 141.64218285313467, 146.9733501664542]
     type: "list"
     help: >
           Mean RGB value of the image dataset. If not provided it will be automatically computed before the training
@@ -81,7 +81,7 @@ dataset:
           Example: [122.4, 142.6, 113.8]
 
   std_RGB: 
-    value: [37.428685821873636, 38.32576266194198, 38.824212063872004]
+    value: [37.10979508456217, 37.93522883983716, 38.377729093999136]
     type: "list"
     help: >
           Standard deviation of the RGB value of the image dataset. It is actually not needed for training.
@@ -119,7 +119,7 @@ training:
           your batchsize so that the model still fits in the GPU. (It was set by Ignacio to 16)
 
   epochs:
-    value: 100
+    value: 5
     type: "int"
     range: [0, None]
     help: >

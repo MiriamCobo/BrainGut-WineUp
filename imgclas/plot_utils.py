@@ -18,7 +18,7 @@ from imgclas import paths
 
 def training_plots(conf, stats, show_val=True, show_ckpt=True):
     """
-    Plot the loss and accuracy metrics for a timestamped training.
+    Plot the loss and MSE metrics for a timestamped training.
 
     Parameters
     ----------
@@ -35,12 +35,12 @@ def training_plots(conf, stats, show_val=True, show_ckpt=True):
 
     # Training
     axs[0].plot(stats['epoch'], stats['loss'], label='Training')
-    axs[1].plot(stats['epoch'], stats['acc'], label='Training')
+    axs[1].plot(stats['epoch'], stats['mean_absolute_error'], label='Training')
 
     # Validation
     if (conf['training']['use_validation']) and show_val:
         axs[0].plot(stats['epoch'], stats['val_loss'], label='Validation')
-        axs[1].plot(stats['epoch'], stats['val_acc'], label='Validation')
+        axs[1].plot(stats['epoch'], stats['val_mean_absolute_error'], label='Validation')
 
     # Model Checkpoints
     if (conf['training']['ckpt_freq'] is not None) and show_ckpt:
@@ -53,15 +53,15 @@ def training_plots(conf, stats, show_val=True, show_ckpt=True):
             axs[0].axvline(c, linestyle= '--', color='#f9d1e0')
             axs[1].axvline(c, linestyle= '--', color='#f9d1e0', label=label)
 
-    axs[1].set_ylim([0, 1])
+#     axs[1].set_ylim([0, 1]) ###
     axs[0].set_xlabel('Epochs'), axs[0].set_title('Loss')
-    axs[1].set_xlabel('Epochs'), axs[1].set_title('Accuracy')
+    axs[1].set_xlabel('Epochs'), axs[1].set_title('MAE')
     axs[0].legend(loc='upper right')
 
 
 def multi_training_plots(timestamps, legend_loc='upper right'):
     """
-    Compare the loss and accuracy metrics for a timestamped training.
+    Compare the loss and MSE metrics for a timestamped training.
 
     Parameters
     ----------
@@ -93,22 +93,22 @@ def multi_training_plots(timestamps, legend_loc='upper right'):
 
         # Training
         axs[0].plot(stats['epoch'], stats['loss'], label=ts)
-        axs[1].plot(stats['epoch'], stats['acc'], label=ts)
+        axs[1].plot(stats['epoch'], stats['mean_absolute_error'], label=ts)
 
         # Validation
         if conf['training']['use_validation']:
             axs[2].plot(stats['epoch'], stats['val_loss'], label=ts)
-            axs[3].plot(stats['epoch'], stats['val_acc'], label=ts)
+            axs[3].plot(stats['epoch'], stats['val_mean_absolute_error'], label=ts)
 
-    axs[1].set_ylim([0, 1])
-    axs[3].set_ylim([0, 1])
+#     axs[1].set_ylim([0, 1]) ###
+#     axs[3].set_ylim([0, 1]) 
 
     for i in range(4):
         axs[0].set_xlabel('Epochs')
 
     axs[0].set_title('Training Loss')
-    axs[1].set_title('Training Accuracy')
+    axs[1].set_title('Training MAE')
     axs[2].set_title('Validation Loss')
-    axs[3].set_title('Validation Accuracy')
+    axs[3].set_title('Validation MAE')
 
     axs[0].legend(loc=legend_loc)

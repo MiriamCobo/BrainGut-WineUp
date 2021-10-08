@@ -32,7 +32,7 @@ import numpy as np
 import tensorflow as tf
 import tensorflow.keras.backend as K
 
-from imgclas.data_utils import load_data_splits, compute_meanRGB, compute_classweights, load_class_names, data_sequence, \
+from imgclas.data_utils import load_data_splits, compute_meanRGB, data_sequence, \
     json_friendly
 from imgclas import paths, config, model_utils, utils
 from imgclas.optimizers import customAdam
@@ -72,7 +72,7 @@ def train_fn(TIMESTAMP, CONF):
         CONF['training']['use_validation'] = False
 
     # Load the class names
-    class_names = load_class_names(splits_dir=paths.get_ts_splits_dir()) ### for classification
+#     class_names = load_class_names(splits_dir=paths.get_ts_splits_dir()) ### for classification
 
     # Update the configuration
     CONF['model']['preprocess_mode'] = model_utils.model_modes[CONF['model']['modelname']]
@@ -151,7 +151,7 @@ def train_fn(TIMESTAMP, CONF):
                                        excluded_vars=top_vars
                                        ),
                   loss='mean_squared_error',
-                  metrics=['mse']) ### for regression
+                  metrics=['mae']) ### for regression
 
     history = model.fit_generator(generator=train_gen,
                                   steps_per_epoch=train_steps,
