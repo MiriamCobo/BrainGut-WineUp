@@ -72,7 +72,7 @@ model:
 
 dataset:
   mean_RGB:
-    value: [140.74365519517684, 141.64218285313467, 146.9733501664542]
+    value:
     type: "list"
     help: >
           Mean RGB value of the image dataset. If not provided it will be automatically computed before the training
@@ -81,7 +81,7 @@ dataset:
           Example: [122.4, 142.6, 113.8]
 
   std_RGB: 
-    value: [37.10979508456217, 37.93522883983716, 38.377729093999136]
+    value:
     type: "list"
     help: >
           Standard deviation of the RGB value of the image dataset. It is actually not needed for training.
@@ -213,18 +213,18 @@ monitor:
 augmentation: 
 
   train_mode:
-    value: 
-      h_flip: 0.5
-      v_flip: 0.5
-      rot: 0.5
-      rot_lim: 90
-      stretch: 0.0
-      crop: 1.
-      zoom: 0.0
-      blur: 0.2
-      pixel_noise: 0.1
-      pixel_sat: 0.3
-      cutout: 0.0
+    value: {}
+#       h_flip: 0.5
+#       v_flip: 0.5
+#       rot: 0.5
+#       rot_lim: 90
+#       stretch: 0.0
+#       crop: 1.
+#       zoom: 0.0
+#       blur: 0.2
+#       pixel_noise: 0.1
+#       pixel_sat: 0.3
+#       cutout: 0.0
     help: >
           Augmentation parameters to use during the training phase. The meaning of the parameters is the following:
             - h_flip ([0,1] float): probability of performing an horizontal left-right mirroring.
@@ -249,19 +249,19 @@ augmentation:
 
           Use an empty dict {} in case you want to disable data augmentation.
 
-  val_mode:
-    value:
-      h_flip: 0.5
-      v_flip: 0.5
-      rot: 0.5
-      rot_lim: 30
-      stretch: 0.0
-      crop: 1.
-      zoom: 0.0
-      blur: 0.1
-      pixel_noise: 0.1
-      pixel_sat: 0.1
-      cutout: 0.
+  val_mode: 
+    value: {}
+#       h_flip: 0.5
+#       v_flip: 0.5
+#       rot: 0.5
+#       rot_lim: 30
+#       stretch: 0.0
+#       crop: 1.
+#       zoom: 0.0
+#       blur: 0.1
+#       pixel_noise: 0.1
+#       pixel_sat: 0.1
+#       cutout: 0.
     help: >
           Augmentation parameters to use during the validation/testing phase. The augmentation is smaller than in the
           case of training parameters. The meaning of the parameters is the same as in the train_mode option.
