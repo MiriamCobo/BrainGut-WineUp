@@ -72,7 +72,7 @@ model:
 
 dataset:
   mean_RGB:
-    value: 
+    value: [144.80535043518563, 148.56605883092647, 156.39639428470485]
     type: "list"
     help: >
           Mean RGB value of the image dataset. If not provided it will be automatically computed before the training
@@ -81,7 +81,7 @@ dataset:
           Example: [122.4, 142.6, 113.8]
 
   std_RGB:
-    value: 
+    value: [40.17857982144633, 40.84078901667229, 41.47748017068211]
     type: "list"
     help: >
           Standard deviation of the RGB value of the image dataset. It is actually not needed for training.
