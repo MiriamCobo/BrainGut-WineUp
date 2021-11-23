@@ -1,3 +1,0 @@
-labrador.jpeg 0
-tabby.jpeg 1
-coated.jpeg 0
