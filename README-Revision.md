@@ -1,12 +1,15 @@
-DEEP Open Catalogue: Image classification
-=========================================
+DEEP Open Catalogue: Image classification adapted to regression tasks
+=====================================================================
 
 [![Build Status](https://jenkins.indigo-datacloud.eu/buildStatus/icon?job=Pipeline-as-code/DEEP-OC-org/image-classification-tf/master)](https://jenkins.indigo-datacloud.eu/job/Pipeline-as-code/job/DEEP-OC-org/job/image-classification-tf/job/master/)
 
+**Author:** [Miriam Cobo](https://github.com/Miriammmc) (CSIC)
 
-**Author:** [Ignacio Heredia](https://github.com/IgnacioHeredia) (CSIC)
+**Project:** This work is part of the BrainGut-WineUp project that has received funding from the CSIC. The code is an adaptation to regression tasks of the original image classification project that is described below. 
 
-**Project:** This work is part of the [DEEP Hybrid-DataCloud](https://deep-hybrid-datacloud.eu/) project that has
+**Original author:** [Ignacio Heredia](https://github.com/IgnacioHeredia) (CSIC)
+
+**Original project:** This work is part of the [DEEP Hybrid-DataCloud](https://deep-hybrid-datacloud.eu/) project that has
 received funding from the European Union’s Horizon 2020 research and innovation programme under grant agreement No 777435.
 
 This is a plug-and-play tool to train and evaluate an image classifier on a custom dataset using deep neural networks.
