@@ -1,9 +1,9 @@
 # Configuration file for the image regression application
-#
-# Date: September 2018
-# Author: Ignacio Heredia
-# Email: iheredia@ifca.unican.es
-# Github: ignacioheredia
+# 
+# Update: November 2021
+# Author: Miriam Cobo, Ignacio Heredia
+# Email: cobocano@ifca.unican.es, iheredia@ifca.unican.es
+# Github: miriammmc, ignacioheredia
 #
 # References
 # ----------
@@ -23,14 +23,12 @@ general:
           Base directory for data and models. All the data that will be read and written will be done within this
           directory.
           If path is relative it will be appended to the package path.
-          This was set by Ignacio to "."
 
   images_directory:
     value: "/"
     type: "str"
     help: >
           Base directory for images. If the path is relative, it will be appended to the package path.
-          This was set by Ignacio to "data/images".
           "/" is the root directory. For absolute path given in the images.
 
 
@@ -55,8 +53,7 @@ model:
     type: "int"
     range: [32, 1000]
     help: >
-          Image size to feed the model. If not provided, we will use the default image size of each model. (It was set by Igancio
-          to 224)
+          Image size to feed the model. If not provided, we will use the default image size of each model.
 
   preprocess_mode:
     value:
@@ -116,7 +113,7 @@ training:
     range: [1, 64]
     help: >
           Batchsize to use during training. If your model has a large number of classes (>1000) you might need to decrease
-          your batchsize so that the model still fits in the GPU. (It was set by Ignacio to 16)
+          your batchsize so that the model still fits in the GPU.
 
   epochs:
     value: 50
