@@ -1,10 +1,10 @@
 """
 Miscellaneous functions manage paths.
 
-Date: November 2021
-Authors: Miriam Cobo, Ignacio Heredia
-Email: cobocano@ifca.unican.es, iheredia@ifca.unican.es
-Github: miriammmc, ignacioheredia
+Date: September 2018
+Author: Ignacio Heredia
+Email: iheredia@ifca.unican.es
+Github: ignacioheredia
 """
 
 import os.path
