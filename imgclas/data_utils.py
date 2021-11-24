@@ -1,10 +1,10 @@
 """
 Miscellaneous functions manage data.
 
-Date: September 2018
-Author: Ignacio Heredia
-Email: iheredia@ifca.unican.es
-Github: ignacioheredia
+Date: November 2021
+Authors: Miriam Cobo, Ignacio Heredia
+Email: cobocano@ifca.unican.es, iheredia@ifca.unican.es
+Github: miriammmc, ignacioheredia
 """
 
 import os
@@ -29,8 +29,6 @@ def load_data_splits(splits_dir, im_dir, split_name='train'):
     """
     Load the data arrays from the [train/val/test].txt files.
     Lines of txt files have the following format:
-    'relative_path_to_image' 'image_label_number'
-    ### new format:
     'absolute_path_to_image'*'image_label_number_in_mL'
 
     Parameters
@@ -75,20 +73,6 @@ def mount_nextcloud(frompath, topath):
     if error:
         warnings.warn("Error while mounting NextCloud: {}".format(error))
     return output, error
-
-
-###
-# def load_class_names(splits_dir):
-#     """
-#     Load list of class names
-
-#     Returns
-#     -------
-#     Numpy array of shape (N) containing strs with class names
-#     """
-#     print("Loading class names...")
-#     class_names = np.genfromtxt(os.path.join(splits_dir, 'classes.txt'), dtype='str', delimiter='/n')
-#     return class_names
 
 
 def load_class_info(splits_dir):
@@ -605,45 +589,6 @@ def compute_meanRGB(im_list, verbose=False, workers=4):
     print('Standard deviation of RGB pixel: {}'.format(std.tolist()))
 
     return mean.tolist(), std.tolist()
-
-
-# def compute_classweights(labels, max_dim=None, mode='balanced'): ###
-#     """
-#     Compute the class weights  for a set of labels to account for label imbalance.
-
-#     Parameters
-#     ----------
-#     labels : numpy array, type (ints), shape (N)
-#     max_dim : int
-#         Maximum number of classes. Default is the max value in labels.
-#     mode : str, {'balanced', 'log'}
-
-#     Returns
-#     -------
-#     Numpy array, type (float32), shape (N)
-#     """
-#     if mode is None:
-#         return None
-
-#     weights = np.bincount(labels)
-#     weights = np.sum(weights) / weights
-
-#     # Fill the count if some high number labels are not present in the sample
-#     if max_dim is not None:
-#         diff = max_dim - len(weights)
-#         if diff != 0:
-#             weights = np.pad(weights, pad_width=(0, diff), mode='constant', constant_values=0)
-
-#     # Transform according to different modes
-#     if mode == 'balanced':
-#         pass
-#     elif mode == 'log':
-#         # do not use --> produces numerical instabilities at inference when transferring weights trained on GPU to CPU
-#         weights = np.log(weights) # + 1
-#     else:
-#         raise ValueError('{} is not a valid option for parameter "mode"'.format(mode))
-
-#     return weights.astype(np.float32)
 
 
 def json_friendly(d):

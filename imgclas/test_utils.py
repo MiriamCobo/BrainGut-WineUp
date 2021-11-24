@@ -1,10 +1,10 @@
 """
 Miscellaneous functions for test time.
 
-Date: September 2018
-Author: Ignacio Heredia
-Email: iheredia@ifca.unican.es
-Github: ignacioheredia
+Date: November 2021
+Authors: Miriam Cobo, Ignacio Heredia
+Email: cobocano@ifca.unican.es, iheredia@ifca.unican.es
+Github: miriammmc, ignacioheredia
 """
 
 import numpy as np
@@ -45,8 +45,6 @@ def predict(model, X, conf, crop_num=30, filemode='local', merge=False, use_mult
             Array of predicted probabilities
     """
 
-#     if top_K is None: ###
-#         top_K = conf['model']['num_classes']
     if type(X) is str: #if not isinstance(X, list):
         X = [X]
 
@@ -66,8 +64,7 @@ def predict(model, X, conf, crop_num=30, filemode='local', merge=False, use_mult
                            workers=4,
                            use_multiprocessing=use_multiprocessing)
 
-    ### ?
-    output = output.reshape(len(X), -1)  # reshape to (N, crop_number, num_classes)
+    output = output.reshape(len(X), -1)
     output = np.mean(output, axis=1)  # take the mean across the crops
 
     if merge:
@@ -85,7 +82,7 @@ def predict(model, X, conf, crop_num=30, filemode='local', merge=False, use_mult
     return result
 
 
-def topK_accuracy(true_lab, pred_lab, K=1): ### revisar
+def topK_accuracy(true_lab, pred_lab, K=1): ### not used for regression tasks
     """
     Compute the top_K accuracy
 

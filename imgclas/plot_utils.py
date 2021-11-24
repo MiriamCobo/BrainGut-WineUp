@@ -1,10 +1,10 @@
 """"
 Miscellaneous functions to plot.
 
-Date: September 2018
-Author: Ignacio Heredia
-Email: iheredia@ifca.unican.es
-Github: ignacioheredia
+Date: November 2021
+Authors: Miriam Cobo, Ignacio Heredia
+Email: cobocano@ifca.unican.es, iheredia@ifca.unican.es
+Github: miriammmc, ignacioheredia
 """
 
 import os
@@ -53,7 +53,6 @@ def training_plots(conf, stats, show_val=True, show_ckpt=True):
             axs[0].axvline(c, linestyle= '--', color='#f9d1e0')
             axs[1].axvline(c, linestyle= '--', color='#f9d1e0', label=label)
 
-#     axs[1].set_ylim([0, 1]) ###
     axs[0].set_xlabel('Epochs'), axs[0].set_title('Loss')
     axs[1].set_xlabel('Epochs'), axs[1].set_title('MAE')
     axs[0].legend(loc='upper right')
@@ -99,9 +98,6 @@ def multi_training_plots(timestamps, legend_loc='upper right'):
         if conf['training']['use_validation']:
             axs[2].plot(stats['epoch'], stats['val_loss'], label=ts)
             axs[3].plot(stats['epoch'], stats['val_mean_absolute_error'], label=ts)
-
-#     axs[1].set_ylim([0, 1]) ###
-#     axs[3].set_ylim([0, 1]) 
 
     for i in range(4):
         axs[0].set_xlabel('Epochs')

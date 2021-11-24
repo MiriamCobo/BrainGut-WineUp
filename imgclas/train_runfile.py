@@ -1,10 +1,10 @@
 """
 Training runfile
 
-Date: September 2018
-Author: Ignacio Heredia
-Email: iheredia@ifca.unican.es
-Github: ignacioheredia
+Date: November 2021
+Authors: Miriam Cobo, Ignacio Heredia
+Email: cobocano@ifca.unican.es, iheredia@ifca.unican.es
+Github: miriammmc, ignacioheredia
 
 Description:
 This file contains the commands for training a convolutional net for image classification.
@@ -78,20 +78,6 @@ def train_fn(TIMESTAMP, CONF):
     CONF['model']['preprocess_mode'] = model_utils.model_modes[CONF['model']['modelname']]
     CONF['training']['batch_size'] = min(CONF['training']['batch_size'], len(X_train))
 
-#     if CONF['model']['num_classes'] is None: ### for classification
-#         CONF['model']['num_classes'] = len(class_names) ### for classification
-
-#     assert CONF['model']['num_classes'] >= np.amax(y_train), "Your train.txt file has more categories than those defined in classes.txt"
-#     if CONF['training']['use_validation']:
-#         assert CONF['model']['num_classes'] >= np.amax(y_val), "Your val.txt file has more categories than those defined in classes.txt" 
-
-#     # Compute the class weights ###
-#     if CONF['training']['use_class_weights']:
-#         class_weights = compute_classweights(y_train,
-#                                              max_dim=CONF['model']['num_classes'])
-#     else:
-#         class_weights = None
-
     # Compute the mean and std RGB values
     if CONF['dataset']['mean_RGB'] is None:
         CONF['dataset']['mean_RGB'], CONF['dataset']['std_RGB'] = compute_meanRGB(X_train)
@@ -138,13 +124,6 @@ def train_fn(TIMESTAMP, CONF):
         for layer in base_model.layers:
             layer.trainable = False
 
-#     model.compile(optimizer=customAdam(lr=CONF['training']['initial_lr'],
-#                                        amsgrad=True,
-#                                        lr_mult=0.1,
-#                                        excluded_vars=top_vars
-#                                        ),
-#                   loss='categorical_crossentropy',
-#                   metrics=['accuracy']) ### for classification
     model.compile(optimizer=customAdam(lr=CONF['training']['initial_lr'],
                                        amsgrad=True,
                                        lr_mult=0.1,
@@ -156,7 +135,6 @@ def train_fn(TIMESTAMP, CONF):
     history = model.fit_generator(generator=train_gen,
                                   steps_per_epoch=train_steps,
                                   epochs=CONF['training']['epochs'],
-#                                   class_weight=class_weights, ###
                                   validation_data=val_gen,
                                   validation_steps=val_steps,
                                   callbacks=utils.get_callbacks(CONF),
