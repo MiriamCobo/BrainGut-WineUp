@@ -42,8 +42,8 @@ You can have more info on how to interact directly with the module by examining 
   Visualize the saliency maps of the predicted images, which show what were the most relevant pixels in order to make the prediction.
 
 <p float="left">
-  <img src="./reports/figures/SM_Est_Rio_C_Bur_275_nd_f_bl_con_me_cen.png" width="360" hspace="40"/>
-  <img src="./reports/figures/SM_Est_Rio_R_Char_150_nd_ext_nd_nd_al_inf.png" width="360" /> 
+  <img src="./reports/figures/SM_Est_Rio_C_Bur_275_nd_f_bl_con_me_cen.png" width="340" hspace="40"/>
+  <img src="./reports/figures/SM_Est_Rio_R_Char_150_nd_ext_nd_nd_al_inf.png" width="340" /> 
 </p>
 
 
