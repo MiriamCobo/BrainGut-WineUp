@@ -57,7 +57,7 @@ The main changes of the original code were done in order to adapt the code from 
 
 * [data utils python script](https://github.com/Miriammmc/image-classification-tf/blob/01eeceb1b5b92b71a2a285e898aa4c8f798205fd/imgclas/data_utils.py#L75-L78)
 
-* [model utils python script] (https://github.com/Miriammmc/image-classification-tf/blob/01eeceb1b5b92b71a2a285e898aa4c8f798205fd/imgclas/model_utils.py#L52)
+* [model utils python script](https://github.com/Miriammmc/image-classification-tf/blob/01eeceb1b5b92b71a2a285e898aa4c8f798205fd/imgclas/model_utils.py#L52)
 
 * [plot utils script](https://github.com/Miriammmc/image-classification-tf/blob/01eeceb1b5b92b71a2a285e898aa4c8f798205fd/imgclas/plot_utils.py#L55-L57)
 
