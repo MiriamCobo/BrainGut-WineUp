@@ -14,14 +14,8 @@ received funding from the European Union’s Horizon 2020 research and innovatio
 
 **Table of contents**
 1. [Notebooks content](#notebooks-content)
-2. [Description of the adaptations of the original code](#description-of-the-adaptations-of-the-original-code)
-    1. [Data preprocessing](#1-data-preprocessing)
-        1. [Prepare the images](#11-prepare-the-images)
-        2. [Prepare the data splits](#12-prepare-the-data-splits)
-    2. [Train the classifier](#train-an-image-classifier)
-3. [Test an image classifier](#test-an-image-classifier)
-4. [More info](#more-info)
-5. [Acknowledgements](#acknowledgments)
+2. [Description of the adaptations from the original code](#description-of-the-adaptations-from-the-original-code)
+3. [Acknowledgements](#acknowledgments)
 
 ## Notebooks content
 
@@ -48,12 +42,12 @@ You can have more info on how to interact directly with the module by examining 
   Visualize the saliency maps of the predicted images, which show what were the most relevant pixels in order to make the prediction.
 
 <p float="left">
-  <img src="./reports/figures/SM_Est_Rio_C_Bur_275_nd_f_bl_con_me_cen.png" width="400" hspace="50"/>
-  <img src="./reports/figures/SM_Est_Rio_R_Char_150_nd_ext_nd_nd_al_inf.png" width="400" /> 
+  <img src="./reports/figures/SM_Est_Rio_C_Bur_275_nd_f_bl_con_me_cen.png" width="360" hspace="40"/>
+  <img src="./reports/figures/SM_Est_Rio_R_Char_150_nd_ext_nd_nd_al_inf.png" width="360" /> 
 </p>
 
 
-## Description of the adaptations of the original code
+## Description of the adaptations from the original code
 
 The main changes of the original code were done in order to adapt the code from classification to regression:
 
@@ -61,7 +55,15 @@ The main changes of the original code were done in order to adapt the code from 
 
 * [config python script](https://github.com/Miriammmc/image-classification-tf/blob/0e229c2d998f85eefbda026cb9f23f80ca1f6dcb/imgclas/config.py#L17)
 
-* [data utils python script]()
+* [data utils python script](https://github.com/Miriammmc/image-classification-tf/blob/01eeceb1b5b92b71a2a285e898aa4c8f798205fd/imgclas/data_utils.py#L75-L78)
+
+* [model utils python script] (https://github.com/Miriammmc/image-classification-tf/blob/01eeceb1b5b92b71a2a285e898aa4c8f798205fd/imgclas/model_utils.py#L52)
+
+* [plot utils script](https://github.com/Miriammmc/image-classification-tf/blob/01eeceb1b5b92b71a2a285e898aa4c8f798205fd/imgclas/plot_utils.py#L55-L57)
+
+* [test utils python script](https://github.com/Miriammmc/image-classification-tf/blob/01eeceb1b5b92b71a2a285e898aa4c8f798205fd/imgclas/test_utils.py#L71-L85)
+
+* [train runfile python script](https://github.com/Miriammmc/image-classification-tf/blob/01eeceb1b5b92b71a2a285e898aa4c8f798205fd/imgclas/train_runfile.py#L85-L104)
 
 ## Acknowledgements
 
