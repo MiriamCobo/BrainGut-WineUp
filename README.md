@@ -26,7 +26,7 @@ You can have more info on how to interact directly with the module by examining 
   Visualize examples of the liquid containers used to train the classifier.
 
 * [sets preparation notebook](./notebooks/1.0-Sets_preparation.ipynb):
-  Split the data into training, validation and tests sets.
+  Split the data into training, validation and test sets.
   
 * [model training notebook](./notebooks/2.0-Model_training.ipynb):
   Visualize training and validation model statistics.
@@ -49,7 +49,7 @@ You can have more info on how to interact directly with the module by examining 
 
 ## Description of the adaptations from the original code
 
-The main changes of the original code were done in order to adapt the code from classification to regression:
+The main changes of the original code were done in order to adapt the code from classification to regression tasks:
 
 * [configuration](https://github.com/Miriammmc/image-classification-tf/blob/0e229c2d998f85eefbda026cb9f23f80ca1f6dcb/etc/config-r.yaml#L51-L58)
 
