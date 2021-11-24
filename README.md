@@ -47,8 +47,10 @@ You can have more info on how to interact directly with the module by examining 
 * [saliency maps notebook](./notebooks/3.2-Saliency_maps.ipynb):
   Visualize the saliency maps of the predicted images, which show what were the most relevant pixels in order to make the prediction.
 
-![Saliency maps example 1](./reports/figures/SM_Est_Rio_C_Bur_275_nd_f_bl_con_me_cen.pdf)
-![Saliency maps example 2](./reports/figures/SM_Est_Rio_R_Char_150_nd_ext_nd_nd_al_inf.pdf)
+<p float="left">
+  <img src="./reports/figures/SM_Est_Rio_C_Bur_275_nd_f_bl_con_me_cen.png" width="400" hspace="50"/>
+  <img src="./reports/figures/SM_Est_Rio_R_Char_150_nd_ext_nd_nd_al_inf.png" width="400" /> 
+</p>
 
 
 ## Description of the adaptations of the original code
