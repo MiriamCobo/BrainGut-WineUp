@@ -40,8 +40,6 @@ You can have more info on how to interact directly with the module by examining 
 * [computing predictions notebook](./notebooks/3.0-Computing_predictions.ipynb):
   Test the classifier on multiple images.
 
-<img src="./reports/figures/predict.png" alt="predict" width="400">
-
 * [predictions statistics notebook](./notebooks/3.1-Prediction_statistics.ipynb):
   Make and store the predictions of the `test.txt` file (if you provided one). Once you have done that you can visualize
   the statistics of the predictions like popular metrics (Mean Abosulte Error, Root Mean Squared Error and Coefficient of Determination) and visualize violin       plots of the predictions.
@@ -49,7 +47,8 @@ You can have more info on how to interact directly with the module by examining 
 * [saliency maps notebook](./notebooks/3.2-Saliency_maps.ipynb):
   Visualize the saliency maps of the predicted images, which show what were the most relevant pixels in order to make the prediction.
 
-![Saliency maps](./reports/figures/demo-saliency.png)
+![Saliency maps example 1](./reports/figures/SM_Est_Rio_C_Bur_275_nd_f_bl_con_me_cen.pdf)
+![Saliency maps example 2](./reports/figures/SM_Est_Rio_R_Char_150_nd_ext_nd_nd_al_inf.pdf)
 
 
 ## Description of the adaptations of the original code
