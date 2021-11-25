@@ -1,0 +1,11 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite it as below."
+authors:
+- family-names: "Cobo Cano"
+  given-names: "Miriam"
+  orcid:
+title: "BrainGut-WineUp Project Software"
+version: 1.0.0
+doi:
+date-released: 2021-11-25
+url: "https://github.com/MiriamCobo/BrainGut-WineUp.git"
