@@ -3,7 +3,8 @@ message: "If you use this software, please cite it as below."
 authors:
 - family-names: "Cobo Cano"
   given-names: "Miriam"
-  orcid:
+  orcid: " https://orcid.org/
+0000-0001-9208-9062"
 title: "BrainGut-WineUp Project Software"
 version: 1.0.0
 doi:
