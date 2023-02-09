@@ -66,3 +66,5 @@ The main changes of the original code were done in order to adapt the code from 
 ## Acknowledgements
 
 If you consider this project to be useful, please consider citing this repository.
+
+> Cobo, Miriam, et al. "Artificial intelligence to estimate wine volume from single-view images." Heliyon 8.9 (2022): e10557.
